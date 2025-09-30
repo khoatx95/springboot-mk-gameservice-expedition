@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import mk.gameservice.expedition.dto.CreateSoloDTO;
+import mk.gameservice.expedition.dto.SoloCreateDTO;
 import mk.gameservice.expedition.dto.SoloDTO;
 import mk.gameservice.expedition.model.Solo;
 import mk.gameservice.expedition.service.SoloService;
@@ -21,7 +21,7 @@ public class SoloController {
   }
 
   @PostMapping()
-  public SoloDTO create(@PathVariable String userId, @RequestBody CreateSoloDTO body) {
+  public SoloDTO create(@PathVariable String userId, @RequestBody SoloCreateDTO body) {
     Solo solo = soloService.create(userId, body.code());
     return new SoloDTO(solo);
   }
